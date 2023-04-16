@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using webnhahangasp.Models;
 
 namespace webnhahangasp.Controllers.Admin
 {
@@ -11,7 +12,16 @@ namespace webnhahangasp.Controllers.Admin
         // GET: AdminHome
         public ActionResult Index()
         {
-            return View();
+            User user = (User)Session["ADMIN"];
+            if (user == null)
+            {
+                return RedirectToAction("Login", "AdminAuthentication");
+            }
+            else
+            {
+                return View();
+            }
+
         }
     }
 }

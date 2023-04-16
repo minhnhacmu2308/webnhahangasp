@@ -126,8 +126,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Admin\AdminAuthenticationController.cs" />
+    <Compile Include="Controllers\Admin\AdminBookingController.cs" />
+    <Compile Include="Controllers\Admin\AdminBranchController.cs" />
+    <Compile Include="Controllers\Admin\AdminCustomerController.cs" />
+    <Compile Include="Controllers\Admin\AdminFoodController.cs" />
     <Compile Include="Controllers\Admin\AdminHomeController.cs" />
+    <Compile Include="Controllers\Admin\AdminMenuController.cs" />
     <Compile Include="Controllers\Admin\AdminModulesController.cs" />
+    <Compile Include="Controllers\Admin\AdminNewsController.cs" />
+    <Compile Include="Controllers\Admin\AdminOrderController.cs" />
+    <Compile Include="Controllers\Admin\AdminTypeFoodController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
@@ -348,6 +357,15 @@
     <Content Include="Views\AdminModules\Footer.cshtml" />
     <Content Include="Views\AdminModules\Menu.cshtml" />
     <Content Include="Views\AdminHome\Index.cshtml" />
+    <Content Include="Views\AdminAuthentication\Login.cshtml" />
+    <Content Include="Views\AdminFood\Index.cshtml" />
+    <Content Include="Views\AdminTypeFood\Index.cshtml" />
+    <Content Include="Views\AdminBranch\Index.cshtml" />
+    <Content Include="Views\AdminNews\Index.cshtml" />
+    <Content Include="Views\AdminOrder\Index.cshtml" />
+    <Content Include="Views\AdminCustomer\Index.cshtml" />
+    <Content Include="Views\AdminBooking\Index.cshtml" />
+    <Content Include="Views\AdminMenu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
