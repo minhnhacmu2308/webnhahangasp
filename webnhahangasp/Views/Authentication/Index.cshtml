@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Navbar & Hero Start -->
+<div class="container-xxl position-relative p-0">
+    @Html.Action("Header", "Modules")
+
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Đăng ký / Đăng nhập</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Đăng ký / Đăng nhập</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Navbar & Hero End -->
+<!-- Contact Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-5">Đăng ký / Đăng nhập</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="row gy-12">
+                    <div class="col-md-6">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">Đăng ký</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">Đăng nhập</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Họ tên</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Mật khẩu</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Số điện thoại</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Giới tính</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Ngày sinh</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Địa chỉ</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Đăng ký</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Mật khẩu</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Đăng nhập</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

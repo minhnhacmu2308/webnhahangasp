@@ -26,5 +26,11 @@ namespace webnhahangasp.Controllers
 
             return View();
         }
+
+        [ChildActionOnly]
+        public ActionResult Slide()
+        {
+            return PartialView();
+        }
     }
 }

@@ -7,13 +7,13 @@ namespace webnhahangasp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class _new : IMigrationMetadata
+    public sealed partial class updatedb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_new));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedb));
         
         string IMigrationMetadata.Id
         {
-            get { return "202304021542143_new"; }
+            get { return "202304161344184_update-db"; }
         }
         
         string IMigrationMetadata.Source

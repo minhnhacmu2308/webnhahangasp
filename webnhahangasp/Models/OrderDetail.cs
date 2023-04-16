@@ -17,5 +17,9 @@ namespace webnhahangasp.Models
         public int FoodId { get; set; }
 
         public int Quantity { get; set; }
+
+        public virtual Order Order { get; set; }
+
+        public virtual Food Food { get; set; }
     }
 }

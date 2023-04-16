@@ -27,5 +27,9 @@ namespace webnhahangasp.Models
         public DateTime Updated_at { get; set; }
         public int Updated_by { get; set; }
         public int PayTotal { get; set; }
+
+        public virtual Role Role { get; set; }
+
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

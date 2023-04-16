@@ -14,5 +14,7 @@ namespace webnhahangasp.Models
         public int TypeFoodId { get; set; }
 
         public string Name { get; set; }
+
+        public virtual ICollection<Food> Foods { get; set; }
     }
 }

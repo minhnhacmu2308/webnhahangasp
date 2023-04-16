@@ -22,5 +22,11 @@ namespace webnhahangasp.Models
 
         public int Status { get; set; }
         public int TypeFoodId { get; set; }
+
+        public virtual TypeFood TypeFood { get; set; }
+
+        public virtual ICollection<Menu> Menus { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

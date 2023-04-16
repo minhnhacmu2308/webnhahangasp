@@ -81,5 +81,5 @@ C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.csproj.CopyComplete
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.dll
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.pdb
-C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations._new.resources
+C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.updatedb.resources
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.csproj.GenerateResource.cache

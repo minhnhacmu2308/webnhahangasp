@@ -23,5 +23,7 @@ namespace webnhahangasp.Models
         public int IsPayment { get; set; }
 
         public string Created_at { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

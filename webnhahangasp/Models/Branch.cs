@@ -16,5 +16,7 @@ namespace webnhahangasp.Models
         public string Name { get; set; }
 
         public string Address { get; set; }
+
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }
