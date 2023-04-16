@@ -346,9 +346,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Modules\Header.cshtml" />
     <Content Include="Views\Modules\Footer.cshtml" />
     <Content Include="Views\Authentication\Index.cshtml" />
@@ -366,6 +363,21 @@
     <Content Include="Views\AdminCustomer\Index.cshtml" />
     <Content Include="Views\AdminBooking\Index.cshtml" />
     <Content Include="Views\AdminMenu\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Bookings.cshtml" />
+    <Content Include="Views\Home\Carts.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\FoodDetail.cshtml" />
+    <Content Include="Views\Home\Foods.cshtml" />
+    <Content Include="Views\Home\HistoryBook.cshtml" />
+    <Content Include="Views\Home\HistoryOrder.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Menus.cshtml" />
+    <Content Include="Views\Home\NewDetail.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\Payment.cshtml" />
+    <Content Include="Views\Home\Profiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
