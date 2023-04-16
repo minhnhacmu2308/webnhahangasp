@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Carts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-xxl position-relative p-0">
+    @Html.Action("Header", "Modules")
+
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Giỏ hàng</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Giỏ hàng</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Giỏ hàng</h5>
+            <h1 class="mb-5">Giỏ hàng của bạn</h1>
+        </div>
+        <div class="row g-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Ảnh</th>
+                        <th scope="col">Món ăn</th>
+                        <th scope="col">Giá tiền</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><img style="width : 200px" src="https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/dungtv/anh-bo-suu-tap/top-20-nha-hang-ngon-noi-tieng-o-hn/top-nha-hang-ngon-hn.jpg"></th>
+                        <td>Cua đồng</td>
+                        <td>200,000</td>
+                        <td>5</td>
+                        <td>1,000,000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img style="width : 200px" src="https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/dungtv/anh-bo-suu-tap/top-20-nha-hang-ngon-noi-tieng-o-hn/top-nha-hang-ngon-hn.jpg"></th>
+                        <td>Cua đồng</td>
+                        <td>200,000</td>
+                        <td>5</td>
+                        <td>1,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="text-align : right">
+            <a class="btn btn-primary py-3 px-5 mt-2" href="/Home/Payment">Đặt hàng</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Foods";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl position-relative p-0">
+    @Html.Action("Header", "Modules")
+
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Món ăn</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Món ăn</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-xxl pt-5 pb-3">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Món ăn</h5>
+            <h1 class="mb-5">Danh sách các món ăn order online</h1>
+        </div>
+        <div class="row g-4">
+            @for (int i = 1; i <= 8; i++)
+            {
+                <div class="col-lg-3 col-md-6 wow fadeInUp mb-2" data-wow-delay="0.1s">
+                    <div class="team-item text-center rounded">
+                        <div class=" m-4">
+                            <a href="/Home/FoodDetail">
+                                <img class="img-fluid" src="https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/dungtv/anh-bo-suu-tap/top-20-nha-hang-ngon-noi-tieng-o-hn/top-nha-hang-ngon-hn.jpg" alt="">
+                            </a>
+                        </div>
+                        <h5 class="mb-0">Cua đồng</h5>
+                        <small>200,000 VNĐ</small>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+

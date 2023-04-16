@@ -13,6 +13,66 @@ namespace webnhahangasp.Controllers
             return View();
         }
 
+        public ActionResult News()
+        {
+            return View();
+        }
+
+        public ActionResult Menus()
+        {
+            return View();
+        }
+
+        public ActionResult Bookings()
+        {
+            return View();
+        }
+
+        public ActionResult Foods()
+        {
+            return View();
+        }
+
+        public ActionResult Carts()
+        {
+            return View();
+        }
+
+        public ActionResult Profiles()
+        {
+            return View();
+        }
+
+        public ActionResult FoodDetail()
+        {
+            return View();
+        }
+
+        public ActionResult HistoryBook()
+        {
+            return View();
+        }
+
+        public ActionResult HistoryOrder()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult NewDetail()
+        {
+            return View();
+        }
+
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
