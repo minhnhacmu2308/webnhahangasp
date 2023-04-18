@@ -3,7 +3,6 @@
     ViewBag.Title = "FoodDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="container-xxl position-relative p-0">
     @Html.Action("Header", "Modules")
 
@@ -30,14 +29,14 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <h1 class="mb-4">Cua đồng</h1>
-                <p class="mb-4">Nhắc tới hải sản tươi sống với chất lượng cao cấp hàng đầu không thể không nhắc tới Thế Giới Hải Sản - chuỗi nhà hàng uy tín lâu đời, được nhiều người tin tưởng, yêu quý. Bề bề tươi sống, tôm hùm bông thơm ngon, hàu sữa ngầy ngậy,... là một vài trong số hơn 100 loại hải sản tươi bạn có thể tìm thấy tại đây.</p>
+                <h1 class="mb-4">@ViewBag.Food.Name</h1>
+                <p class="mb-4">@ViewBag.Food.Description</p>
                 <div class="row g-4 mb-4">
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">200,000</h1>
+                            <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">@ViewBag.Food.Price</h1>
                             <div class="ps-4">
-                                <p class="mb-0">VNĐ</p>
+                                <p class="mb-0"> VNĐ</p>
                             </div>
                         </div>
                     </div>
@@ -47,17 +46,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

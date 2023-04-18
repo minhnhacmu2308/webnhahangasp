@@ -41,47 +41,51 @@
             </div>
             <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form>
+                    <form action="/Authentication/Register" method="post">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" name="Fullname" id="name" placeholder="Họ tên">
                                     <label for="name">Họ tên</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" name="Email" id="email" placeholder="Your Email">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="password" class="form-control" name="Password" id="name" placeholder="Mật khẩu">
                                     <label for="name">Mật khẩu</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="text" class="form-control" name="Phone" id="email" placeholder="Số điện thoại">
                                     <label for="email">Số điện thoại</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected value="1">Nam</option>
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                    </select>
                                     <label for="name">Giới tính</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Ngày sinh</label>
+                                    <input type="text" class="form-control" name="Name" id="email" placeholder="Username">
+                                    <label for="email">Username</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" name="Address" id="subject" placeholder="Địa chỉ">
                                     <label for="subject">Địa chỉ</label>
                                 </div>
                             </div>
@@ -98,13 +102,13 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="email" class="form-control" name="Email" id="name" placeholder="YEmail">
                                     <label for="name">Email</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="password" class="form-control" name="Password" id="email" placeholder="Mật khẩu">
                                     <label for="email">Mật khẩu</label>
                                 </div>
                             </div>

@@ -28,5 +28,7 @@ namespace webnhahangasp.Models
         public virtual ICollection<Menu> Menus { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public virtual ICollection<BookingFood> BookingFoods { get; set; }
     }
 }

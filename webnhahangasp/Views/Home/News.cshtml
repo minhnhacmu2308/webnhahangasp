@@ -26,21 +26,61 @@
             <h1 class="mb-5">Tin tức mới nhất</h1>
         </div>
         <div class="row g-4">
-            @for (int i = 1; i <= 4; i++)
+            @foreach (var item1 in ViewBag.List)
             {
                 <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <a href="/Home/FoodDetail">
-                                <img style="width: 500px; height: 300px;" src="https://treobangron.com.vn/wp-content/uploads/2022/12/banner-quang-cao-nha-hang-32.jpg">
+                                <img style="width: 500px; height: 300px;" src="@item1.Image">
                             </a>
-                            <h5>Tin tức</h5>
-                            <p>Tin tức trong ngày .....</p>
+                            <h5>@item1.Title</h5>
+                            <p>@item1.Content</p>
                         </div>
                     </div>
                 </div>
             }
+            <nav aria-label="...">
+                <ul class="pagination">
+                    @if (ViewBag.tag > 1)
+                    {
+                        int b = ViewBag.tag - 1;
+                        <li class="page-item ">
+                            <a class="page-link" href="/Home/News/@b" tabindex="-1">&lArr;</a>
+                        </li>
 
+                    }
+                    else
+                    {
+                        <li></li>
+                    }
+
+                    @for (var i = 1; i <= ViewBag.pageSize; i++)
+                    {
+                        if (ViewBag.tag == i)
+                        {
+                            <li class="page-item active"><a class="page-link" href="/Home/News/@i">@i</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item "><a class="page-link" href="/Home/News/@i">@i</a></li>
+                        }
+
+                    }
+                    @if (ViewBag.tag < ViewBag.pageSize)
+                    {
+                        int a = ViewBag.tag + 1;
+                        <li class="page-item">
+                            <a class="page-link" href="/Home/News/@a">&rArr; </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li></li>
+                    }
+
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

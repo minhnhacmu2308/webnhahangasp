@@ -28,5 +28,7 @@ namespace webnhahangasp.Models
         public virtual User User { get; set; }
 
         public virtual Branch Branch { get; set; }
+
+        public virtual ICollection<BookingFood> BookingFoods { get; set; }
     }
 }

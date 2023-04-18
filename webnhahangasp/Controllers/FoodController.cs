@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using webnhahangasp.Models;
+using webnhahangasp.Repository;
 
 namespace webnhahangasp.Controllers
 {
-    public class AuthenticationController : Controller
+    public class FoodController : Controller
     {
-        // GET: Authentication
+        FoodRepository foodRepository = new FoodRepository();
+        // GET: Food
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Login()
+        public ActionResult FoodDetail(int id)
         {
+            ViewBag.Food = foodRepository.GetFood(id);
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult Register(User user)
-        {
-
-            return RedirectToAction("Index");
         }
     }
 }

@@ -12,7 +12,16 @@ namespace webnhahangasp
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+              name: "Foods Index",
+              url: "Home/Foods/{page}",
+              defaults: new { controller = "Home", action = "Foods", id = UrlParameter.Optional }
+             );
+            routes.MapRoute(
+              name: "News Index",
+              url: "Home/News/{page}",
+              defaults: new { controller = "Home", action = "News", id = UrlParameter.Optional }
+             );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -3,23 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using webnhahangasp.Models;
+using webnhahangasp.Repository;
 
 namespace webnhahangasp.Controllers
 {
     public class HomeController : Controller
     {
+        NewsRepository newsRepository = new NewsRepository();
+        FoodRepository foodRepository = new FoodRepository();
+        MenuRepository menuRepository = new MenuRepository();
         public ActionResult Index()
         {
+            ViewBag.ListEvening = menuRepository.GetMenusEvening();
+            ViewBag.ListNoon = menuRepository.GetMenusNoon();
+            ViewBag.ListMorning = menuRepository.GetMenusMorning();
             return View();
         }
 
-        public ActionResult News()
+        public ActionResult News(int page)
         {
+            if (page == 0)
+            {
+                page = 1;
+            }
+            ViewBag.List = newsRepository.GetNews(page, 4);
+            ViewBag.tag = page;
+            ViewBag.pageSize = newsRepository.getNumberNews();
             return View();
         }
 
         public ActionResult Menus()
         {
+            ViewBag.ListEvening = menuRepository.GetMenusEvening();
+            ViewBag.ListNoon = menuRepository.GetMenusNoon();
+            ViewBag.ListMorning = menuRepository.GetMenusMorning();
             return View();
         }
 
@@ -28,8 +46,15 @@ namespace webnhahangasp.Controllers
             return View();
         }
 
-        public ActionResult Foods()
+        public ActionResult Foods(int page)
         {
+            if (page == 0)
+            {
+                page = 1;
+            }
+            ViewBag.List = foodRepository.GetFoods(page, 8);
+            ViewBag.tag = page;
+            ViewBag.pageSize = foodRepository.getNumberFood();
             return View();
         }
 
@@ -39,11 +64,6 @@ namespace webnhahangasp.Controllers
         }
 
         public ActionResult Profiles()
-        {
-            return View();
-        }
-
-        public ActionResult FoodDetail()
         {
             return View();
         }

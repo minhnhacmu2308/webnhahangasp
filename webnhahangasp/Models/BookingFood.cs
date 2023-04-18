@@ -7,19 +7,18 @@ using System.Web;
 
 namespace webnhahangasp.Models
 {
-    public class Menu
+    public class BookingFood
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MenuId { get; set; }
+        public int BookingFoodId { get; set; }
 
-        public string Date { get; set; }
-
-        public string Session { get; set; }
+        public int BookingId { get; set; }
 
         public int FoodId { get; set; }
 
-        public virtual Food Food { get; set; }
+        public virtual Booking Booking { get; set; }
 
+        public virtual Food Food { get; set; }
     }
 }

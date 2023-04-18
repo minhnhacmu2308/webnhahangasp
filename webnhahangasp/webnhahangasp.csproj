@@ -138,6 +138,7 @@
     <Compile Include="Controllers\Admin\AdminOrderController.cs" />
     <Compile Include="Controllers\Admin\AdminTypeFoodController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,8 +148,17 @@
     <Compile Include="Migrations\202304161344184_update-db.Designer.cs">
       <DependentUpon>202304161344184_update-db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304181438032_update-db1.cs" />
+    <Compile Include="Migrations\202304181438032_update-db1.Designer.cs">
+      <DependentUpon>202304181438032_update-db1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304181616514_new.cs" />
+    <Compile Include="Migrations\202304181616514_new.Designer.cs">
+      <DependentUpon>202304181616514_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\BookingFood.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Menu.cs" />
@@ -367,7 +377,6 @@
     <Content Include="Views\Home\Bookings.cshtml" />
     <Content Include="Views\Home\Carts.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\FoodDetail.cshtml" />
     <Content Include="Views\Home\Foods.cshtml" />
     <Content Include="Views\Home\HistoryBook.cshtml" />
     <Content Include="Views\Home\HistoryOrder.cshtml" />
@@ -378,6 +387,7 @@
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\Profiles.cshtml" />
+    <Content Include="Views\Food\FoodDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,6 +408,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304161344184_update-db.resx">
       <DependentUpon>202304161344184_update-db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181438032_update-db1.resx">
+      <DependentUpon>202304181438032_update-db1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181616514_new.resx">
+      <DependentUpon>202304181616514_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

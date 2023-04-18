@@ -21,9 +21,9 @@ Nhân viên:
 - Xem, chỉnh sửa, xác nhận hoặc hủy đặt bàn của khách hàng
 - Chat với khách hàng thông qua nền tảng chatlive tawk.to
 Khách hàng:
-- Truy cập vào trang chủ
-- Xem tin tức
-- Xem menu món ăn trong ngày
+- Truy cập vào trang chủ(done)
+- Xem tin tức(done)
+- Xem menu món ăn trong ngày(done)
 - Đăng ký
 - Đăng nhập
 - Cập nhật thông tin cá nhân: tên, địa chỉ, giới tính, ngày sinh
