@@ -12,11 +12,11 @@ namespace webnhahangasp.Repository
     {
         WebNhaHangDbContext myDb = new WebNhaHangDbContext();
 
-        public bool checkLogin(string email, string password)
+        public User checkLogin(string email, string password)
         {
             var obj = myDb.users.FirstOrDefault(x => x.Email == email && x.Password == password);
-            if (obj == null) { return false; }
-            return true;
+            if (obj != null) { return obj; }
+            return null;
         }
 
 
@@ -45,7 +45,16 @@ namespace webnhahangasp.Repository
             return sb.ToString();
         }
 
-
+        public void Update(User user)
+        {
+            var obj = myDb.users.FirstOrDefault(x => x.Email == user.Email);
+            obj.Fullname = user.Fullname;
+            obj.Updated_at = DateTime.Now;
+            obj.Address = user.Address;
+            obj.Gender = user.Gender;
+            obj.Phone = user.Phone;
+            myDb.SaveChanges();
+        }
 
         public bool checkExistEmail(string email)
         {

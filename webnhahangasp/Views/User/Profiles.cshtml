@@ -3,8 +3,22 @@
     ViewBag.Title = "Profiles";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+@if (ViewBag.Msg != null)
+{
+    if (ViewBag.Msg == "1")
+    {
+        <script>
+            swal({
+                title: 'Cập nhật thông tin thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
+}
 <div class="container-xxl position-relative p-0">
     @Html.Action("Header", "Modules")
 
@@ -31,50 +45,56 @@
             </div>
             <div class="col-md-8 wow fadeIn" data-wow-delay="0.1s">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form>
+                    <form action="/User/UpdateProfile" method="post">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" value="Lê Văn A">
+                                    <input type="text" class="form-control" id="name" name="Fullname" required value="@ViewBag.User.Fullname">
                                     <label for="name">Họ tên</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" value="levana@gmail.com">
+                                    <input type="email" class="form-control" id="email" readonly name="Email" required value="@ViewBag.User.Email">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="name" value="aaaaaaaaaa">
+                                    <input type="password" class="form-control" id="name" readonly  value="@ViewBag.User.Password">
                                     <label for="name">Mật khẩu</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" value="0394073645">
+                                    <input type="text" class="form-control" id="email"  name="Phone" value="@ViewBag.User.Phone">
                                     <label for="email">Số điện thoại</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" value="Nam">
+                                    <select class="form-select" required name="Gender" aria-label="Default select example">
+                                        @if (ViewBag.User.Gender == 1)
+                                        {
+                                            <option selected value="1">Nam</option>
+                                        }
+                                        else
+                                        {
+                                            <option selected value="0">Nữ</option>
+                                        }
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                    </select>
                                     <label for="name">Giới tính</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" value="02/06/1996">
-                                    <label for="email">Ngày sinh</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" value="Bắc Từ Liêm, Hà Nội">
+                                    <input type="text" class="form-control" id="subject" required name="Address" value="@ViewBag.User.Address">
                                     <label for="subject">Địa chỉ</label>
                                 </div>
                             </div>
+
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Lưu</button>
                             </div>
@@ -88,12 +108,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
 
 
 

@@ -170,3 +170,4 @@ D:\.NET\WebNhaHang\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.dll
 D:\.NET\WebNhaHang\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.pdb
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.updatedb1.resources
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations._new.resources
+C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.updatemodel.resources

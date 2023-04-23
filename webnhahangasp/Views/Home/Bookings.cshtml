@@ -3,7 +3,7 @@
     ViewBag.Title = "Bookings";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{ var userInfomatiom = (webnhahangasp.Models.User)Session["USER"]; }
 <div class="container-xxl position-relative p-0">
     @Html.Action("Header", "Modules")
 
@@ -25,58 +25,65 @@
         <div class="col-md-12 bg-dark d-flex align-items-center">
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">Đặt bàn</h5>
-                <h1 class="text-white mb-4">Đặt bàn trực tuyến</h1>
-                <form>
+                <h1 class="text-white mb-4">Đặt bàn trực tuyến cho ngày @DateTime.Now.ToString("dd/mm/yyyy")</h1>
+                <form action="/Booking/Add" method="post">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <select class="form-select" id="select1">
-                                    <option value="1">Chi nhánh A</option>
-                                    <option value="2">Chi nhánh C</option>
-                                    <option value="3">Chi nhánh B</option>
+                                <select class="form-select" name="BranchId" id="select1">
+                                    @foreach (var item in ViewBag.Booking)
+                                    {
+                                        <option value="@item.BranchId">@item.Name</option>
+                                    }
                                 </select>
                                 <label for="select1">Chọn chi nhánh</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <input type="text" class="form-control" id="name" name="NumberPeople" placeholder="Your Name">
                                 <label for="name">Số lượng người</label>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="date" class="form-control" id="name" placeholder="Ngày đặt">
-                                <label for="name">Ngày đặt</label>
+                                <input type="time" class="form-control" onchange="getMenu()" id="timeBooking" name="Time" placeholder="Giờ đặt">
+                                <label for="name">Giờ đặt</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="time" class="form-control" id="name" placeholder="Giờ đặt">
-                                <label for="name">Giờ đặt</label>
+                                <select class="form-select" name="BranchId" id="select1">
+                                    @foreach (var item in ViewBag.Booking)
+                                    {
+                                        <option value="@item.BranchId">@item.Name</option>
+                                    }
+                                </select>
+                                <label for="select1">Món ăn</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <input type="text" class="form-control" id="name" name="Fullname" value="@userInfomatiom.Fullname" placeholder="Your Name">
                                 <label for="name">Họ tên</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" class="form-control" id="email" value="@userInfomatiom.Email" placeholder="Your Email">
                                 <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="text" class="form-control" id="email" value="@userInfomatiom.Phone" placeholder="Your Email">
                                 <label for="email">Số điện thoại</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Special Request" name="note" id="message" style="height: 100px"></textarea>
                                 <label for="message">Yêu cầu đặc biệt</label>
                             </div>
                         </div>
@@ -88,6 +95,26 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+                            function getMenu() {
+                                var timeBooking = document.getElementById("timeBooking").value;
+                                $.ajax({
+                                    url: "/Booking/GetMenuByTime",
+                                    type: "post",
+                                    data: {
+                                        time: timeBooking,
+                                    },
+                                    success: function (data) {
+                                        console.log(data)
+                                    }
+                                });
+                            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
 </div>
 
 

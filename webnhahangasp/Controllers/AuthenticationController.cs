@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webnhahangasp.Models;
+using webnhahangasp.Repository;
 
 namespace webnhahangasp.Controllers
 {
     public class AuthenticationController : Controller
     {
+        UserRepository userRepository = new UserRepository();
         // GET: Authentication
-        public ActionResult Index()
+        public ActionResult Index(string msg)
         {
+            ViewBag.Msg = msg;
             return View();
         }
 
@@ -23,8 +26,47 @@ namespace webnhahangasp.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
+            bool checkEmailExist = userRepository.checkExistEmail(user.Email);
+            if (checkEmailExist)
+            {
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index", new { msg = "2" });
+            }
+            else
+            {
+                user.RoleId = 3;
+                user.Status = 1;
+                user.Created_at = DateTime.Now;
+                user.Updated_at = DateTime.Now;
+                user.Password = userRepository.md5(user.Password);
+
+                userRepository.Add(user);
+
+                return RedirectToAction("Index", new { msg = "1" });
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult Login(User user)
+        {
+            string passwordMd5 = userRepository.md5(user.Password);
+            User userInformation = userRepository.checkLogin(user.Email, passwordMd5);
+            if (userInformation != null)
+            {
+                Session.Add("USER", userInformation);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", new { msg = "3" });
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Remove("USER");
+            return Redirect("/Home/Index");
         }
     }
 }

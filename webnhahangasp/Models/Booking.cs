@@ -19,6 +19,12 @@ namespace webnhahangasp.Models
         public string Date { get; set; }
         public string Time { get; set; }
 
+        public string FullName { get; set; }
+
+        public string Phone { get; set; }
+
+        public string Email { get; set; }
+
         public string Note { get; set; }
 
         public int NumberPeople { get; set; }

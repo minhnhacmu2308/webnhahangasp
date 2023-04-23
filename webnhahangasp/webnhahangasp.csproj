@@ -138,9 +138,11 @@
     <Compile Include="Controllers\Admin\AdminOrderController.cs" />
     <Compile Include="Controllers\Admin\AdminTypeFoodController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -155,6 +157,10 @@
     <Compile Include="Migrations\202304181616514_new.cs" />
     <Compile Include="Migrations\202304181616514_new.Designer.cs">
       <DependentUpon>202304181616514_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304231152103_updatemodel.cs" />
+    <Compile Include="Migrations\202304231152103_updatemodel.Designer.cs">
+      <DependentUpon>202304231152103_updatemodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
@@ -386,11 +392,12 @@
     <Content Include="Views\Home\NewDetail.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
-    <Content Include="Views\Home\Profiles.cshtml" />
     <Content Include="Views\Food\FoodDetail.cshtml" />
+    <Content Include="Views\User\Profiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Booking\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -414,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304181616514_new.resx">
       <DependentUpon>202304181616514_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304231152103_updatemodel.resx">
+      <DependentUpon>202304231152103_updatemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

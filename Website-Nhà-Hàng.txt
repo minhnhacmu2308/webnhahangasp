@@ -1,4 +1,4 @@
-Website nhà hàng : 
+		Website nhà hàng : 
 Công nghệ sử dụng : ASP.NET MVC, Enity Framework, HTML, CSS, Bootstrap
 - Các đối tượng:
   + Admin
@@ -24,12 +24,14 @@ Khách hàng:
 - Truy cập vào trang chủ(done)
 - Xem tin tức(done)
 - Xem menu món ăn trong ngày(done)
-- Đăng ký
-- Đăng nhập
-- Cập nhật thông tin cá nhân: tên, địa chỉ, giới tính, ngày sinh
+- Đăng ký (done)
+- Đăng nhập(done)
+- Cập nhật thông tin cá nhân: tên, địa chỉ, giới tính, số điện thoại (done)
 - Sau khi đăng nhập -> Đặt bàn -> chọn chi nhánh nhà hàng -> chọn ngày và giờ sẽ tới -> xác nhận đặt bàn
-- Có thể thanh toán online qua momo, hoặc đến nhà hàng nhận bàn và thanh toán sau khi ăn xong
 - Xem lịch sử đã đặt bàn, có thể hủy bàn trước 2 tiếng
+
+//
+- Có thể thanh toán online qua momo, hoặc đến nhà hàng nhận bàn và thanh toán sau khi ăn xong
 - Chat với nhân viên trên website
 - Xem các món ăn có thể đặt mang đi
 - Thêm vào giỏ hàng

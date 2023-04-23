@@ -23,6 +23,50 @@
 </div>
 <!-- Navbar & Hero End -->
 <!-- Contact Start -->
+@if (ViewBag.Msg != null)
+{
+    if (ViewBag.Msg == "1")
+    {
+        <script>
+            swal({
+                title: 'Đăng kí thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
+    if (ViewBag.Msg == "2")
+    {
+        <script>
+            swal({
+                title: 'Email đã tồn tại !',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'error'
+            })
+        </script>
+    }
+
+    if (ViewBag.Msg == "3")
+    {
+        <script>
+            swal({
+                title: 'Thông tin email hoặc mật khẩu không đúng !',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'error'
+            })
+        </script>
+    }
+
+}
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -45,31 +89,31 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="Fullname" id="name" placeholder="Họ tên">
+                                    <input type="text" class="form-control" name="Fullname" required id="name" placeholder="Họ tên">
                                     <label for="name">Họ tên</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" name="Email" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" name="Email" required id="email" placeholder="Your Email">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" name="Password" id="name" placeholder="Mật khẩu">
+                                    <input type="password" class="form-control" name="Password" required id="name" placeholder="Mật khẩu">
                                     <label for="name">Mật khẩu</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="Phone" id="email" placeholder="Số điện thoại">
+                                    <input type="text" class="form-control" name="Phone" required id="email" placeholder="Số điện thoại">
                                     <label for="email">Số điện thoại</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="Gender" required aria-label="Default select example">
                                         <option selected value="1">Nam</option>
                                         <option value="1">Nam</option>
                                         <option value="0">Nữ</option>
@@ -79,13 +123,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="Name" id="email" placeholder="Username">
+                                    <input type="text" class="form-control" name="Name" required id="email" placeholder="Username">
                                     <label for="email">Username</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="Address" id="subject" placeholder="Địa chỉ">
+                                    <input type="text" class="form-control" name="Address" required id="subject" placeholder="Địa chỉ">
                                     <label for="subject">Địa chỉ</label>
                                 </div>
                             </div>
@@ -98,17 +142,17 @@
             </div>
             <div class="col-md-6">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form>
+                    <form action="/Authentication/Login" method="post">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" name="Email" id="name" placeholder="YEmail">
+                                    <input type="email" class="form-control" name="Email" required id="name" placeholder="YEmail">
                                     <label for="name">Email</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" name="Password" id="email" placeholder="Mật khẩu">
+                                    <input type="password" class="form-control" name="Password" required id="email" placeholder="Mật khẩu">
                                     <label for="email">Mật khẩu</label>
                                 </div>
                             </div>

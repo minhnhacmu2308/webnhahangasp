@@ -13,11 +13,12 @@ namespace webnhahangasp.Controllers
         NewsRepository newsRepository = new NewsRepository();
         FoodRepository foodRepository = new FoodRepository();
         MenuRepository menuRepository = new MenuRepository();
+        BranchRepositpry branchRepository = new BranchRepositpry();
         public ActionResult Index()
         {
-            ViewBag.ListEvening = menuRepository.GetMenusEvening();
-            ViewBag.ListNoon = menuRepository.GetMenusNoon();
-            ViewBag.ListMorning = menuRepository.GetMenusMorning();
+            ViewBag.ListEvening = menuRepository.GetMenusBySession("Tối");
+            ViewBag.ListNoon = menuRepository.GetMenusBySession("Trưa");
+            ViewBag.ListMorning = menuRepository.GetMenusBySession("Sáng");
             return View();
         }
 
@@ -35,14 +36,15 @@ namespace webnhahangasp.Controllers
 
         public ActionResult Menus()
         {
-            ViewBag.ListEvening = menuRepository.GetMenusEvening();
-            ViewBag.ListNoon = menuRepository.GetMenusNoon();
-            ViewBag.ListMorning = menuRepository.GetMenusMorning();
+            ViewBag.ListEvening = menuRepository.GetMenusBySession("Tối");
+            ViewBag.ListNoon = menuRepository.GetMenusBySession("Trưa");
+            ViewBag.ListMorning = menuRepository.GetMenusBySession("Sáng");
             return View();
         }
 
         public ActionResult Bookings()
         {
+            ViewBag.Booking = branchRepository.GetBranches();
             return View();
         }
 
