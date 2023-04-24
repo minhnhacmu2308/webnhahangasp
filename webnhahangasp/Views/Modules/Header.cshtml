@@ -28,7 +28,7 @@
                     @if (userInfomatiom != null)
                     {
                         <a href="/User/Profiles" class="dropdown-item">@userInfomatiom.Name</a>
-                        <a href="/Home/HistoryBook" class="dropdown-item">Lịch sử đặt bàn</a>
+                        <a href="/Booking/HistoryBook/@userInfomatiom.UserId" class="dropdown-item">Lịch sử đặt bàn</a>
                         <a href="/Home/HistoryOrder" class="dropdown-item">Lịch sử đơn hàng</a>
                         <a href="/Authentication/Logout" class="dropdown-item">Đăng xuất</a>
                     }

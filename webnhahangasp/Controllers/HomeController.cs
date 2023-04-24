@@ -42,8 +42,9 @@ namespace webnhahangasp.Controllers
             return View();
         }
 
-        public ActionResult Bookings()
+        public ActionResult Bookings(string msg)
         {
+            ViewBag.Msg = msg;
             ViewBag.Booking = branchRepository.GetBranches();
             return View();
         }
@@ -66,11 +67,6 @@ namespace webnhahangasp.Controllers
         }
 
         public ActionResult Profiles()
-        {
-            return View();
-        }
-
-        public ActionResult HistoryBook()
         {
             return View();
         }

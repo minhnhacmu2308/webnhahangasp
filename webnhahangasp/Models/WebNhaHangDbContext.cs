@@ -25,6 +25,8 @@ namespace webnhahangasp.Models
         public DbSet<Order> orders { get; set; }
         public DbSet<OrderDetail> orderDetails { get; set; }
 
+        public DbSet<BookingFood> bookingFoods { get; set; }
+
         public DbSet<News> news { get; set; }
         public DbSet<Menu> menus { get; set; }
 

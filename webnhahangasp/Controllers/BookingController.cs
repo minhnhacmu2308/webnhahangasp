@@ -12,6 +12,8 @@ namespace webnhahangasp.Controllers
     {
         WebNhaHangDbContext myDb = new WebNhaHangDbContext();
         MenuRepository menuRepository = new MenuRepository();
+        BookingRepository bookingRepository = new BookingRepository();
+        BookingFoodRepository bookingFoodRepository = new BookingFoodRepository();
         // GET: Booking
         public ActionResult Index()
         {
@@ -35,11 +37,23 @@ namespace webnhahangasp.Controllers
         }
                         
         [HttpPost] 
-        public ActionResult Add(Booking booking)
+        public ActionResult Add(Booking booking,List<int> FoodId)
         {
-            TimeSpan time = TimeSpan.Parse(booking.Time);
-            string session = menuRepository.GetSessionByTime(time);
+            User user = (User)Session["USER"];
+            booking.Date = DateTime.Now.ToString();
+            booking.UserID = user.UserId;
+            bookingRepository.Add(booking);
+            List<BookingFood> bookingFoods = new List<BookingFood>();
+            FoodId.ForEach(x => bookingFoods.Add(new BookingFood { FoodId = x, BookingId = booking.BookingId }));
+            bookingFoodRepository.Add(bookingFoods);
+            return RedirectToAction("Bookings", "Home", new { msg ="1"});
+        }
+
+        public ActionResult HistoryBook(int userId)
+        {
+            ViewBag.HistoryBooking = bookingRepository.bookingsByUserId(userId);
             return View();
         }
+
     }
 }

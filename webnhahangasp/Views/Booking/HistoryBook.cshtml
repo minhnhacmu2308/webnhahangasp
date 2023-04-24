@@ -5,6 +5,7 @@
 }
 
 
+
 <div class="container-xxl position-relative p-0">
     @Html.Action("Header", "Modules")
 
@@ -31,30 +32,41 @@
                     <tr>
                         <th scope="col">STT</th>
                         <th scope="col">Chi nhánh</th>
-                        <th scope="col">Ngày</th>
-                        <th scope="col">Giờ</th>
+                        <th scope="col">Ngày đặt</th>
+                        <th scope="col">Giờ đến nơi</th>
                         <th scope="col">Số lượng người</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Số điện thoại</th>
+                        <th scope="col">Họ và tên</th>
                         <th scope="col">Yêu cầu đặc biệt</th>
+                        <th>Hoạt động</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @{ int index = 0;}
+                    @foreach (var item in ViewBag.HistoryBooking)
+                    {
+                        index++;
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Hà Nội</td>
-                        <td>15/04/2023</td>
-                        <td>13:00</td>
-                        <td>4</td>
-                        <td>Không có</td>
+                        <th scope="row">@index</th>
+                        <td>@item.Branch.Name</td>
+                        <td>@item.Date</td>
+                        <td>@item.Time</td>
+                        <td>@item.NumberPeople</td>
+                        <td>@item.User.Email</td>
+                        <td>@item.User.Phone</td>
+                        <td>@item.User.Address</td>
+                        <td>@item.Note</td>
+                        <td>Hủy</td>
                     </tr>
+                    }
+
 
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
-
-
 
 
 

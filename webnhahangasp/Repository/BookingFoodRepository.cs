@@ -6,19 +6,14 @@ using webnhahangasp.Models;
 
 namespace webnhahangasp.Repository
 {
-    public class BookingRepository
+    public class BookingFoodRepository
     {
         WebNhaHangDbContext myDb = new WebNhaHangDbContext();
-
-        public void Add(Booking booking)
+        
+        public void Add(List<BookingFood> bookingFoods)
         {
-            myDb.bookings.Add(booking);
+            myDb.bookingFoods.AddRange(bookingFoods);
             myDb.SaveChanges();
-        }
-
-        public List<Booking> bookingsByUserId(int userId)
-        {
-            return myDb.bookings.Where(x => x.UserID == userId).ToList();
         }
     }
 }

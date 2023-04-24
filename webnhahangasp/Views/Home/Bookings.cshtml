@@ -19,6 +19,23 @@
         </div>
     </div>
 </div>
+@if (ViewBag.Msg != null)
+{
+    if (ViewBag.Msg == "1")
+    {
+        <script>
+            swal({
+                title: 'Đặt bàn thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
+   
+}
 <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
     <div class="row g-0">
 
@@ -30,7 +47,7 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <select class="form-select" name="BranchId" id="select1">
+                                <select class="form-select" required name="BranchId" id="select1">
                                     @foreach (var item in ViewBag.Booking)
                                     {
                                         <option value="@item.BranchId">@item.Name</option>
@@ -41,49 +58,47 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" name="NumberPeople" placeholder="Your Name">
+                                <input type="text" class="form-control" id="name" required name="NumberPeople" placeholder="Your Name">
                                 <label for="name">Số lượng người</label>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" name="Fullname" required value="@userInfomatiom.Fullname" placeholder="Your Name">
+                                <label for="name">Họ tên</label>
+                            </div>
+                        </div>
+
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="time" class="form-control" onchange="getMenu()" id="timeBooking" name="Time" placeholder="Giờ đặt">
-                                <label for="name">Giờ đặt</label>
+                                <input type="text" class="form-control" id="email" name="Phone" required value="@userInfomatiom.Phone" placeholder="Your Email">
+                                <label for="email">Số điện thoại</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <select class="form-select" name="BranchId" id="select1">
-                                    @foreach (var item in ViewBag.Booking)
-                                    {
-                                        <option value="@item.BranchId">@item.Name</option>
-                                    }
+                                <input type="email" class="form-control" id="email" name="Email" required value="@userInfomatiom.Email" placeholder="Your Email">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="time" class="form-control" onchange="getMenu()" id="timeBooking" required name="Time" min="@DateTime.Now.TimeOfDay" placeholder="Giờ đặt">
+                                <label for="name">Giờ đặt</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-floating" id="responeAjax">
+                                <select class="form-select" required name="BranchId" style="height: 150px" id="select1" multiple>
                                 </select>
                                 <label for="select1">Món ăn</label>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="name" name="Fullname" value="@userInfomatiom.Fullname" placeholder="Your Name">
-                                <label for="name">Họ tên</label>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-floating">
-                                <input type="email" class="form-control" id="email" value="@userInfomatiom.Email" placeholder="Your Email">
-                                <label for="email">Email</label>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="email" value="@userInfomatiom.Phone" placeholder="Your Email">
-                                <label for="email">Số điện thoại</label>
-                            </div>
-                        </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Special Request" name="note" id="message" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Special Request" required name="note" id="message" style="height: 100px"></textarea>
                                 <label for="message">Yêu cầu đặc biệt</label>
                             </div>
                         </div>
@@ -97,22 +112,55 @@
     </div>
 
     <script type="text/javascript">
-                            function getMenu() {
-                                var timeBooking = document.getElementById("timeBooking").value;
-                                $.ajax({
-                                    url: "/Booking/GetMenuByTime",
-                                    type: "post",
-                                    data: {
-                                        time: timeBooking,
-                                    },
-                                    success: function (data) {
-                                        console.log(data)
-                                    }
-                                });
-                            }
-                        </script>
+        function getMenu() {
 
-                    </div>
+            var timeBooking = document.getElementById("timeBooking").value;
+            const date1 = new Date();
+            // We initialize a past date
+            var month = parseInt(date1.getMonth()) +1 ;
+            var today = date1.getFullYear() + "-" + month + "-" + date1.getDate();
+            var data2Str = today + " " +timeBooking + ":00";
+            const date2 = new Date(data2Str);
+            var row = document.getElementById("responeAjax");
+            if (date1.getTime() > date2.getTime()) {
+                swal({
+                    title: 'Phải chọn giờ sau giờ hiện tại!',
+                    /* text: 'Redirecting...', */
+                    icon: 'error',
+                    timer: 3000,
+                    buttons: true,
+                    type: 'error'
+                })
+                var html = ` <select class="form-select" required style="height: 150px" name="FoodId" id="select1" multiple>`
+              
+                html += ` </select>
+                                                 <label for="select1">Món ăn</label>`
+                row.innerHTML = html
+            } else {
+            
+                $.ajax({
+                    url: "/Booking/GetMenuByTime",
+                    type: "post",
+                    data: {
+                        time: timeBooking,
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        var html = ` <select class="form-select" required style="height: 150px" name="FoodId" id="select1" multiple>`
+                        for (var i = 0; i < data.length; i++) {
+                            html += ` <option value="` + data[i].FoodId + `">` + data[i].FoodName + ` - ` + data[i].Session + `</option>`;
+                        }
+                        html += ` </select>
+                                                 <label for="select1">Món ăn</label>`
+                        row.innerHTML = html
+                    }
+                });
+            }
+           
+        }
+    </script>
+
+</div>
                 </div>
             </div>
 </div>
