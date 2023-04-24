@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "NewDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xxl position-relative p-0">
+    @Html.Action("Header", "Modules")
+
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Chi tiết</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Chi tiết</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-12">
+                <h1 class="mb-4">@ViewBag.New.Title</h1>
+                <div class="col-12 text-start text-center">
+                    <img class="img-fluid rounded w-100 wow zoomIn" style="width : 600px !important" data-wow-delay="0.1s" src="@ViewBag.New.Image">
+                </div>
+                <br>
+                <p class="mb-4">
+                    @Html.Raw(ViewBag.New.Content)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

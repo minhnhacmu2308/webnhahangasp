@@ -28,5 +28,10 @@ namespace webnhahangasp.Repository
             }
             return count;
         }
+
+        public News GetNew(int id)
+        {
+            return myDb.news.FirstOrDefault(x => x.NewsId == id);
+        }
     }
 }

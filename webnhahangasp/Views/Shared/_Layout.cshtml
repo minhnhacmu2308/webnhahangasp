@@ -34,6 +34,19 @@
 </head>
 
 <body>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/644576d831ebfa0fe7f9ef7e/1gunlgg6n';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -43,14 +56,11 @@
         </div>
         <!-- Spinner End -->
         <!-- Navbar & Hero Start -->
-       
         <!-- Navbar & Hero End -->
         <!-- Service Start -->
-            @RenderBody()
+        @RenderBody()
         <!-- Menu End -->
         <!-- Reservation Start -->
-        
-
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             @Html.Action("Footer", "Modules")

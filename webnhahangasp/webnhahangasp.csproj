@@ -139,6 +139,7 @@
     <Compile Include="Controllers\Admin\AdminTypeFoodController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\NewController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
@@ -394,6 +395,7 @@
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Food\FoodDetail.cshtml" />
     <Content Include="Views\User\Profiles.cshtml" />
+    <Content Include="Views\New\NewDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

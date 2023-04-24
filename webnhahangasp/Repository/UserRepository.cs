@@ -56,9 +56,14 @@ namespace webnhahangasp.Repository
             myDb.SaveChanges();
         }
 
-        public bool checkExistEmail(string email)
+        public bool checkExistEmail(string email, int phoneNumber)
         {
             var user = myDb.users.FirstOrDefault(x => x.Email == email);
+            if (user != null)
+            {
+                return true;
+            }
+            var checkPhone = myDb.users.FirstOrDefault(x => x.Phone == phoneNumber);
             if (user != null)
             {
                 return true;

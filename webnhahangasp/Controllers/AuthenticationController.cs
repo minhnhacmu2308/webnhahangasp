@@ -26,7 +26,7 @@ namespace webnhahangasp.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
-            bool checkEmailExist = userRepository.checkExistEmail(user.Email);
+            bool checkEmailExist = userRepository.checkExistEmail(user.Email, user.Phone);
             if (checkEmailExist)
             {
 
