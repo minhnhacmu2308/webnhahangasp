@@ -16,9 +16,9 @@ namespace webnhahangasp.Repository
             myDb.SaveChanges();
         }
 
-        public string GetSessionByTime(TimeSpan time)
+/*        public string GetSessionByTime(TimeSpan time)
         {
-            /*TimeSpan timeMorning = TimeSpan.Parse("08:00");*/
+            *//*TimeSpan timeMorning = TimeSpan.Parse("08:00");*//*
             TimeSpan timeNoon = TimeSpan.Parse("10:00");
             TimeSpan timeEvening = TimeSpan.Parse("17:00");
             if (TimeSpan.Compare(time, timeNoon) == -1)
@@ -32,6 +32,26 @@ namespace webnhahangasp.Repository
             {
                 return "Tối";
             }
+        }
+*/
+        public string GetSessionByTime(TimeSpan time)
+        {
+            string session = "";
+
+            if (time.Hours >= 0 && time.Hours < 12)
+            {
+                session = "Sáng";
+            }
+            else if (time.Hours >= 12 && time.Hours < 18)
+            {
+                session = "Trưa";
+            }
+            else
+            {
+                session = "Tối";
+            }
+
+            return session;
         }
 
         public List<Menu> GetMenusBySession(string session)

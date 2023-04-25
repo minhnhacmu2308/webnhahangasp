@@ -15,5 +15,12 @@ namespace webnhahangasp.Repository
             myDb.bookingFoods.AddRange(bookingFoods);
             myDb.SaveChanges();
         }
+
+        public void removeByBookingId(int bookingId)
+        {
+            List<BookingFood> bookingFoods = myDb.bookingFoods.Where(x => x.BookingId == bookingId).ToList();
+            myDb.bookingFoods.RemoveRange(bookingFoods);
+            myDb.SaveChanges();
+        }
     }
 }

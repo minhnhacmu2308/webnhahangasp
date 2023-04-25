@@ -14,11 +14,13 @@ namespace webnhahangasp.Controllers
         FoodRepository foodRepository = new FoodRepository();
         MenuRepository menuRepository = new MenuRepository();
         BranchRepositpry branchRepository = new BranchRepositpry();
-        public ActionResult Index()
+        public ActionResult Index(string msg)
         {
+            ViewBag.Msg = msg;
             ViewBag.ListEvening = menuRepository.GetMenusBySession("Tối");
             ViewBag.ListNoon = menuRepository.GetMenusBySession("Trưa");
             ViewBag.ListMorning = menuRepository.GetMenusBySession("Sáng");
+            ViewBag.Booking = branchRepository.GetBranches();
             return View();
         }
 

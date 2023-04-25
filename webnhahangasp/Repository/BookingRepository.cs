@@ -20,5 +20,12 @@ namespace webnhahangasp.Repository
         {
             return myDb.bookings.Where(x => x.UserID == userId).ToList();
         }
+
+        public void cancelBooking(int BookingId)
+        {
+            Booking booking = myDb.bookings.FirstOrDefault(x => x.BookingId == BookingId);
+            myDb.bookings.Remove(booking);
+            myDb.SaveChanges();
+        }
     }
 }

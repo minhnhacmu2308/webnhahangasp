@@ -5,7 +5,23 @@
 }
 
 
+@if (ViewBag.Msg != null)
+{
+    if (ViewBag.Msg == "2")
+    {
+        <script>
+            swal({
+                title: 'Hủy đặt bàn thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
 
+}
 <div class="container-xxl position-relative p-0">
     @Html.Action("Header", "Modules")
 
@@ -43,22 +59,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @{ int index = 0;}
+                    @{ int index = 0;
+                        TimeSpan current = DateTime.Now.TimeOfDay;
+                        DateTime cur = DateTime.Today;
+                    }
                     @foreach (var item in ViewBag.HistoryBooking)
                     {
                         index++;
-                    <tr>
-                        <th scope="row">@index</th>
-                        <td>@item.Branch.Name</td>
-                        <td>@item.Date</td>
-                        <td>@item.Time</td>
-                        <td>@item.NumberPeople</td>
-                        <td>@item.User.Email</td>
-                        <td>@item.User.Phone</td>
-                        <td>@item.User.Address</td>
-                        <td>@item.Note</td>
-                        <td>Hủy</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">@index</th>
+                            <td>@item.Branch.Name</td>
+                            <td>@item.Date</td>
+                            <td>@item.Time</td>
+                            <td>@item.NumberPeople</td>
+                            <td>@item.User.Email</td>
+                            <td>@item.User.Phone</td>
+                            <td>@item.User.Address</td>
+                            <td>@item.Note</td>
+                            @{
+                                TimeSpan time = TimeSpan.Parse(item.Time);
+                                TimeSpan diff = time.Subtract(current);
+                                DateTime dateTime = DateTime.Parse(item.Date);
+                            }
+                            @if (diff >= TimeSpan.FromHours(2) && cur == dateTime.Date)
+                            {
+                                <td>  <a href="/Booking/CancelBooking/@item.BookingId" class="btn btn-danger py-sm-1 px-sm-2 me-1    animated slideInLeft">Hủy</a></td>
+                            }
+
+                        </tr>
                     }
 
 

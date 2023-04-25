@@ -24,9 +24,14 @@ namespace webnhahangasp
              );
             routes.MapRoute(
              name: "History booking",
-             url: "Booking/HistoryBook/{userId}",
+             url: "Booking/HistoryBook/{userId}/{msg}",
              defaults: new { controller = "Booking", action = "HistoryBook", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+           name: "Cancel booking",
+           url: "Booking/CancelBooking/{bookingId}",
+           defaults: new { controller = "Booking", action = "CancelBooking", id = UrlParameter.Optional }
+          );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
