@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using webnhahangasp.Models;
+@model List<CartItem>
+@if (ViewBag.Msg != null)
+{
+    if (ViewBag.Msg == "1")
+    {
+        <script>
+            swal({
+                title: 'Thêm giỏ hàng thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
+    if (ViewBag.Msg == "2")
+    {
+        <script>
+            swal({
+                title: 'Xóa sản phẩm thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
+
+}
+<div class="container-xxl position-relative p-0">
+    @Html.Action("Header", "Modules")
+
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Giỏ hàng</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Giỏ hàng</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Giỏ hàng</h5>
+            <h1 class="mb-5">Giỏ hàng của bạn</h1>
+        </div>
+
+        <div class="row g-4">
+            @if (Model != null)
+            {
+                if (Model.Count == 0)
+                {
+                    <div>
+                        <p scope="row">Không có sản phẩm nào</p>
+
+                    </div>
+                }
+                else
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Món ăn</th>
+                                <th scope="col">Giá tiền</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Thành tiền</th>
+                                <th scope="col">Hoạt động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                int amount = item.Price * item.Quantity;
+                                <tr>
+                                    <th scope="row"><img style="width : 200px" src="@item.Image"></th>
+                                    <td>@item.FoodName</td>
+                                    <td>@item.Price.ToString("#,##0") VNĐ</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@amount.ToString("#,##0") VNĐ</td>
+                                    <td><a href="/Order/RemoveToCart/@item.FoodId">Xóa</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                @{
+                                    int total = Model.Sum(x => x.Price * x.Quantity);
+                                }
+                                <td colspan="3" style="font-weight:bold">Tổng cộng:</td>
+                                <td>@total.ToString("#,##0") VNĐ</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                }
+
+            }
+
+        </div>
+        @if (Model == null)
+        {
+
+
+        }
+        else
+        {
+            if (Model.Count != 0)
+            {
+                <div style="text-align : right">
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="/Home/Payment">Đặt hàng</a>
+                </div>
+            }
+        }
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

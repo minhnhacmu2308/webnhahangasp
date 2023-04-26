@@ -18,6 +18,16 @@ namespace webnhahangasp
               defaults: new { controller = "Home", action = "Foods", id = UrlParameter.Optional }
              );
             routes.MapRoute(
+          name: "Add to cart",
+          url: "Order/AddToCart/{foodId}",
+          defaults: new { controller = "Order", action = "AddToCart", id = UrlParameter.Optional }
+         );
+            routes.MapRoute(
+         name: "Remove to cart",
+         url: "Order/RemoveToCart/{foodId}",
+         defaults: new { controller = "Order", action = "RemoveToCart", id = UrlParameter.Optional }
+        );
+            routes.MapRoute(
               name: "News Index",
               url: "Home/News/{page}",
               defaults: new { controller = "Home", action = "News", id = UrlParameter.Optional }
@@ -32,7 +42,9 @@ namespace webnhahangasp
            url: "Booking/CancelBooking/{bookingId}",
            defaults: new { controller = "Booking", action = "CancelBooking", id = UrlParameter.Optional }
           );
-            routes.MapRoute(
+            
+            
+           routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

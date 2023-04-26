@@ -143,6 +143,7 @@
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +172,7 @@
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\BookingFood.cs" />
     <Compile Include="Models\Branch.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\News.cs" />
@@ -401,6 +403,7 @@
     <Content Include="Views\User\Profiles.cshtml" />
     <Content Include="Views\New\NewDetail.cshtml" />
     <Content Include="Views\Booking\HistoryBook.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
