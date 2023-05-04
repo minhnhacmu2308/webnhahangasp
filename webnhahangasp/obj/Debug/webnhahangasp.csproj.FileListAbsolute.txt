@@ -260,3 +260,4 @@ D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.csproj.CopyComplete
 D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.dll
 D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.pdb
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.news.resources
+C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.updadb.resources

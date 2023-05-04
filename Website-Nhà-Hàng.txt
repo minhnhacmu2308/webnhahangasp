@@ -33,8 +33,8 @@ Khách hàng:
 //
 - Có thể thanh toán online qua momo, hoặc đến nhà hàng nhận bàn và thanh toán sau khi ăn xong
 - Chat với nhân viên trên website
-- Xem các món ăn có thể đặt mang đi
+- Xem các món ăn có thể đặt mang đi(Done)
 - Thêm vào giỏ hàng(Done)
-- Cập nhập giỏ hàng
-- Nhập thông tin địa chỉ giao đồ ăn và đặt hàng
+- Cập nhập giỏ hàng(Done)
+- Nhập thông tin địa chỉ giao đồ ăn và đặt hàng(done)
 - Xem lịch sử những đơn hàng đã đặt

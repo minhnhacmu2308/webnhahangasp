@@ -75,7 +75,7 @@
                                 <th scope="col">Ảnh</th>
                                 <th scope="col">Món ăn</th>
                                 <th scope="col">Giá tiền</th>
-                                <th scope="col">Số lượng</th>
+                                <th scope="col" width="100">Số lượng</th>
                                 <th scope="col">Thành tiền</th>
                                 <th scope="col">Hoạt động</th>
                             </tr>
@@ -84,13 +84,19 @@
 
                             @foreach (var item in Model)
                             {
+                                string quantity = "quantity" + item.FoodId;
+                                string amountOfFoodID = "amount" + item.FoodId;
+                                string amountOfFoodIDText = "amountText" + item.FoodId;
                                 int amount = item.Price * item.Quantity;
+
                                 <tr>
-                                    <th scope="row"><img style="width : 200px" src="@item.Image"></th>
-                                    <td>@item.FoodName</td>
+                                    <th scope="row"><img style="width : 200px" src="@item.Image">
+                                    <input type="hidden" id="@amountOfFoodID"  value="@item.Price"/>
+                                    </th>
+                                    <td> @item.FoodName </td>
                                     <td>@item.Price.ToString("#,##0") VNĐ</td>
-                                    <td>@item.Quantity</td>
-                                    <td>@amount.ToString("#,##0") VNĐ</td>
+                                    <td ><input type="number" min="1" class="form-control" id="@quantity" onchange="changeQuantity(@item.FoodId)" value="@item.Quantity" width="48" height="48" /> </td>
+                                    <td><p id="@amountOfFoodIDText">@amount.ToString("#,##0") VNĐ</p> </td>
                                     <td><a href="/Order/RemoveToCart/@item.FoodId">Xóa</a></td>
                                 </tr>
                             }
@@ -101,7 +107,7 @@
                                     int total = Model.Sum(x => x.Price * x.Quantity);
                                 }
                                 <td colspan="3" style="font-weight:bold">Tổng cộng:</td>
-                                <td>@total.ToString("#,##0") VNĐ</td>
+                                <td><p id="total">@total.ToString("#,##0") VNĐ</p></td>
                             </tr>
                         </tfoot>
                     </table>
@@ -127,6 +133,29 @@
 
 
     </div>
+    <script>
+        function changeQuantity(foodId) {
+
+            var quantityStr = "quantity" + foodId;
+            var amountStr = "amount" + foodId;
+            var amountTextStr = "amountText" + foodId;
+            var quantity = document.getElementById(quantityStr).value;
+            var amount = document.getElementById(amountStr).value;
+            var price = parseInt(quantity) * parseInt(amount);
+            document.getElementById(amountTextStr).innerText = price.toLocaleString() + " VNĐ";
+             $.ajax({
+                url: "/Order/ChangeQuantity",
+                type: "post",
+                data: {
+                    foodId: foodId,
+                    quantity: quantity
+                },
+                 success: function (data) {
+                     document.getElementById("total").innerText = data.toLocaleString() +" VNĐ";
+                }
+            });
+        }
+    </script>
 </div>
 
 

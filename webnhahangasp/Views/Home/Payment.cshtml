@@ -3,10 +3,11 @@
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@using webnhahangasp.Models;
+@model List<CartItem>
 <div class="container-xxl position-relative p-0">
     @Html.Action("Header", "Modules")
-
+    @{ var userInfomatiom = (webnhahangasp.Models.User)Session["USER"]; }
     <div class="container-xxl py-5 bg-dark hero-header mb-5">
         <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Đặt hàng</h1>
@@ -24,69 +25,72 @@
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h1 class="mb-5">Đặt hàng</h1>
         </div>
-        <div class="row g-4">
-            <div class="col-md-9 wow fadeIn" data-wow-delay="0.1s">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form>
+        <form action="/Order/Order" method="post">
+            <div class="row g-4">
+                <div class="col-md-9 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" required value="@userInfomatiom.Fullname" name="Name" placeholder="Your Name">
                                     <label for="name">Tên người nhận</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="text" class="form-control" id="email" required placeholder="Số điện thoại" value="@userInfomatiom.Phone" name="PhoneNumber">
                                     <label for="email">Số điện thoại</label>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" name="Address" required placeholder="Địa chỉ nhận hàng">
                                     <label for="name">Địa chỉ nhận</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" required id="message" name="Note" style="height: 150px"></textarea>
                                     <label for="subject">Ghi chú</label>
                                 </div>
                             </div>
                         </div>
-                    </form>
+
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form>
+                <div class="col-md-3">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="row g-3">
+                            @foreach (var item in Model)
+                            {
+                                int amount = item.Price * item.Quantity;
+                                <div class="col-md-6">
+                                    <p>@item.FoodName x @item.Quantity</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>@amount.ToString("#,##0") VNĐ</p>
+                                </div>
+                            }
+                            @{
+                                int total = Model.Sum(x => x.Price * x.Quantity);
+                            }
+                        </div>
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <p>Cua đồng x2</p>
+                                <span style="font-weight:bold">Tổng cộng: </span>
                             </div>
                             <div class="col-md-6">
-                                <p>400,000 VNĐ</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Cua đồng x2</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p>400,000 VNĐ</p>
-                            </div>
-                            <div class="col-md-6">
-                                <strong>Tổng tiền</strong>
-                            </div>
-                            <div class="col-md-6">
-                                <strong>800,000 VNĐ</strong>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Đặt hàng</button>
+                                <span>@total.ToString("#,##0") VNĐ</span>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-12" style="margin-top:10px">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Đặt hàng</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

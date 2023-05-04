@@ -11,6 +11,8 @@ namespace webnhahangasp.Controllers
     public class OrderController : Controller
     {
         FoodRepository foodRepository = new FoodRepository();
+        OrderRepository orderRepository = new OrderRepository();
+        OrderDetailRepository detailRepository = new OrderDetailRepository();
         public ActionResult Index(string msg)
         {
             ViewBag.Msg = msg;
@@ -75,6 +77,52 @@ namespace webnhahangasp.Controllers
             }
             Session["Cart"] = cart;
             return RedirectToAction("Index", "Order", new { msg = "2" });
+        }
+
+        [HttpPost]
+        public JsonResult ChangeQuantity(int foodId , int quantity)
+        {
+            List<CartItem> cart = (List<CartItem>)Session["Cart"];
+            int total = 0;
+
+            foreach (CartItem item in cart)
+            {
+                if (item.FoodId == foodId)
+                {
+                    item.Quantity = quantity;
+                }
+                total += item.Price * item.Quantity;
+            }
+            Session["Cart"] = cart;
+
+            return Json(total, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult Order(Order order)
+        {
+            User user = (User)Session["USER"];
+            List<CartItem> cart = (List<CartItem>)Session["Cart"];
+            int total = 0;
+
+            foreach (CartItem item in cart)
+            {
+                total += item.Price * item.Quantity;
+            }
+            order.Created_at = DateTime.Now.ToString();
+            order.Amount = total;
+            order.UserId = user.UserId;
+            orderRepository.AddOrder(order);
+            OrderDetail orderDetail = new OrderDetail();
+            foreach (CartItem item in cart)
+            {
+                orderDetail.FoodId = item.FoodId;
+                orderDetail.OrderId = order.OrderId;
+                orderDetail.Quantity = item.Quantity;
+                detailRepository.AddOrderDetail(orderDetail);
+            }
+            Session.Remove("Cart");
+            return RedirectToAction("Index", "Home", new { msg = "2" });
         }
     }
 }

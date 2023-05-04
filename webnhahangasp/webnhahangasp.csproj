@@ -168,6 +168,10 @@
     <Compile Include="Migrations\202304241518141_new-s.Designer.cs">
       <DependentUpon>202304241518141_new-s.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305041626394_upda-db.cs" />
+    <Compile Include="Migrations\202305041626394_upda-db.Designer.cs">
+      <DependentUpon>202305041626394_upda-db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\BookingFood.cs" />
@@ -436,6 +440,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304241518141_new-s.resx">
       <DependentUpon>202304241518141_new-s.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305041626394_upda-db.resx">
+      <DependentUpon>202305041626394_upda-db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

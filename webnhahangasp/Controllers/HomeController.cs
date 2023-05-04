@@ -90,7 +90,14 @@ namespace webnhahangasp.Controllers
 
         public ActionResult Payment()
         {
-            return View();
+            User user = (User)Session["USER"];
+            if(user == null)
+            {
+               return RedirectToAction("Index", "Authentication");
+            }
+            List<CartItem> cart = (List<CartItem>)Session["Cart"];
+            ViewBag.listItems = cart;
+            return View(cart);
         }
 
         public ActionResult About()
