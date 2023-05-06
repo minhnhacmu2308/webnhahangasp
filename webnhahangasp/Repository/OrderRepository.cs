@@ -15,5 +15,10 @@ namespace webnhahangasp.Repository
             myDb.orders.Add(order);
             myDb.SaveChanges();
         }
+
+        public List<Order> GetOrdersByUserId(int userId)
+        {
+            return myDb.orders.Where(x => x.UserId == userId).OrderByDescending(x=>x.OrderId).ToList();
+        }
     }
 }

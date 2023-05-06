@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "HistoryOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Msg != null)
+{
+    if (ViewBag.Msg == "1")
+    {
+        <script>
+            swal({
+                title: 'Đặt thành công!',
+                /* text: 'Redirecting...', */
+                icon: 'success',
+                timer: 3000,
+                buttons: true,
+                type: 'success'
+            })
+        </script>
+    }
+
+}
+<div class="container-xxl position-relative p-0">
+    @Html.Action("Header", "Modules")
+
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Lịch sử đơn hàng</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Lịch sử đơn hàng</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-5">Lịch sử đơn hàng</h1>
+        </div>
+        <div class="row g-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Ngày đặt hàng</th>
+                        <th scope="col">Tổng tiền</th>
+                        <th scope="col">Tình trạng thanh toán</th>
+                        <th scope="col">Tình trạng đơn hàng</th>
+                        <th scope="col">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int index = 0;
+                        TimeSpan current = DateTime.Now.TimeOfDay;
+                        DateTime cur = DateTime.Today;
+                    }
+                    @foreach (var item in ViewBag.HistoryOrder)
+                    {
+                        index++;
+                    <tr>
+                        <th scope="row">@index</th>
+                        <td>@item.Created_at</td>
+                        <td>@item.Amount.ToString("#,##0") VNĐ</td>
+                        @if (item.IsPayment == 1)
+                        {
+                            <td style="font-weight:bold;color:forestgreen">Đã thanh toán</td>
+                        }
+                        else
+                        {
+                            <td style="font-weight:bold;color:red">Chưa thanh toán</td>
+                        }
+                        @if (item.Status == 0)
+                        {
+                            <td style="font-weight: bold; color: orange">Chờ xác nhận</td>
+                        }
+                        else if (item.Status == 1)
+                        {
+                            <td style="font-weight: bold; color: orange ">Đang chuẩn bị hàng</td>
+                        }
+                        else if (item.Status == 2)
+                        {
+                            <td style="font-weight: bold; color: orange ">Đang giao hàng</td>
+                        }
+                        else if (item.Status == 3)
+                        {
+                            <td style="font-weight: bold; color: orange">Giao hàng thành công</td>
+                        }
+                        <td>Xem chi tiết</td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
