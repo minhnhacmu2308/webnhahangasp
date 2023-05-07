@@ -67,7 +67,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="email"  name="Phone" value="@ViewBag.User.Phone">
+                                    @{ var sdt = "0" + ViewBag.User.Phone;}
+                                    <input type="text" class="form-control" id="email"  name="Phone" value="@sdt">
                                     <label for="email">Số điện thoại</label>
                                 </div>
                             </div>
@@ -77,13 +78,13 @@
                                         @if (ViewBag.User.Gender == 1)
                                         {
                                             <option selected value="1">Nam</option>
+                                            <option value="0">Nữ</option>
                                         }
                                         else
                                         {
                                             <option selected value="0">Nữ</option>
+                                            <option value="1">Nam</option>
                                         }
-                                        <option value="1">Nam</option>
-                                        <option value="0">Nữ</option>
                                     </select>
                                     <label for="name">Giới tính</label>
                                 </div>

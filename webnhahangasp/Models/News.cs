@@ -18,6 +18,5 @@ namespace webnhahangasp.Models
         public string Content { get; set; }
 
         public string Created_at { get; set; }
-        public int Created_by { get; set; }
     }
 }

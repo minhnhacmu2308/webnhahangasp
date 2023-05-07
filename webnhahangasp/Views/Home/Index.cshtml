@@ -174,7 +174,7 @@
                         {
                             <div class="col-lg-6">
                                 <div class="d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid rounded" src="@item.Food.Image" alt="" style="width: 80px;">
+                                    <img class="flex-shrink-0 img-fluid rounded" src="~/Content/images/@item.Food.Image" alt="" style="width: 80px;">
                                     <div class="w-100 d-flex flex-column text-start ps-4">
                                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                                             <a href="/Food/FoodDetail/@item.Food.FoodId"> <span>@item.Food.Name</span></a>
@@ -194,7 +194,7 @@
                         {
                             <div class="col-lg-6">
                                 <div class="d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid rounded" src="@item.Food.Image" alt="" style="width: 80px;">
+                                    <img class="flex-shrink-0 img-fluid rounded" src="~/Content/images/@item.Food.Image" alt="" style="width: 80px;">
                                     <div class="w-100 d-flex flex-column text-start ps-4">
                                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                                             <a href="/Food/FoodDetail/@item.Food.FoodId"> <span>@item.Food.Name</span></a>
@@ -213,7 +213,7 @@
                         {
                             <div class="col-lg-6">
                                 <div class="d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid rounded" src="@item.Food.Image" alt="" style="width: 80px;">
+                                    <img class="flex-shrink-0 img-fluid rounded" src="~/Content/images/@item.Food.Image" alt="" style="width: 80px;">
                                     <div class="w-100 d-flex flex-column text-start ps-4">
                                         <h5 class="d-flex justify-content-between border-bottom pb-2">
                                             <a href="/Food/FoodDetail/@item.Food.FoodId"> <span>@item.Food.Name</span></a>
@@ -236,7 +236,7 @@
         <div class="col-md-12 bg-dark d-flex align-items-center">
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">Đặt bàn</h5>
-                <h1 class="text-white mb-4">Đặt bàn trực tuyến cho ngày @DateTime.Now.ToString("dd/mm/yyyy")</h1>
+                <h1 class="text-white mb-4">Đặt bàn trực tuyến cho ngày @DateTime.Now.ToString("dd/MM/yyyy")</h1>
                 <form action="/Booking/Add" method="post">
                     <div class="row g-3">
                         <div class="col-md-6">

@@ -6,9 +6,18 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Đơn hàng</h1>
+        <h1 class="mt-4">Danh sách đơn hàng</h1>
         <div class="card mb-4">
             <div class="card-header">
+                @if (ViewBag.Msg != null)
+                {
+                    if (ViewBag.Msg == "1")
+                    {
+                        <div class="alert alert-success">
+                            <strong>Thành công</strong>
+                        </div>
+                    }
+                }
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
@@ -16,15 +25,123 @@
                         <tr>
                             <th>STT</th>
                             <th>Họ tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
                             <th>Ngày đặt</th>
                             <th>Tổng tiền</th>
                             <th>Tình trạng thanh toán</th>
                             <th>Tình trạng đơn hàng</th>
-                            <th>Hoạt động</th>
+                            <th>Món ăn đã đặt</th>
+                            <th>Ghi chú</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        @{ var stt = 1;}
+                        @foreach (var item in ViewBag.List)
+                        {
+                            <tr>
+                                <td>@stt</td>
+                                <td>@item.Name</td>
+                                <td>@item.PhoneNumber</td>
+                                <td>@item.Address</td>
+                                <td>@item.Created_at</td>
+                                <td>@item.Amount.ToString("#,##0") VNĐ</td>
+                                @if (item.IsPayment == 1)
+                                {
+                                    <td style="font-weight:bold;color:forestgreen">Đã thanh toán</td>
+                                }
+                                else
+                                {
+                                    <td style="font-weight:bold;color:red">Chưa thanh toán</td>
+                                }
+                                @if (item.Status == 0)
+                                {
+                                    <td style="font-weight: bold; color: orange">Chờ xác nhận</td>
+                                }
+                                else if (item.Status == 1)
+                                {
+                                    <td style="font-weight: bold; color: orange ">Đang chuẩn bị</td>
+                                }
+                                else if (item.Status == 2)
+                                {
+                                    <td style="font-weight: bold; color: orange ">Đang giao </td>
+                                }
+                                else if (item.Status == 3)
+                                {
+                                    <td style="font-weight: bold; color: orange">Giao thành công</td>
+                                }
+                                <td>
+                                    @{ var listFood = new webnhahangasp.Repository.OrderDetailRepository().getByOrder(item.OrderId);}
+                                    @foreach (var food in listFood)
+                                    {
+                                        <p>@food.Food.Name  x @food.Quantity</p>
+                                    }
+                                </td>
+                                <td>@item.Note</td>
+                                <td>
+                                    @if (item.Status != 3)
+                                    {
+                                        var idEx1 = "exampleModalLabel" + item.OrderId;
+                                        <button style="width:100px" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#@idEx1">
+                                            Cập nhật
+                                        </button>
+                                        <!-- Modal Update-->
+                                        <div class="modal fade" id="@idEx1" tabindex="-1"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Cập nhật đơn hàng</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="POST" action="/AdminOrder/Update" class="register-form" id="register-form">
+                                                            <input type="hidden" class="form-control" id="id" name="OrderId" value="@item.OrderId">
+
+                                                            <div class="mb-3">
+                                                                <label for="category-film"
+                                                                       class="col-form-label">Tình trạng đơn hàng:</label>
+                                                                <select class="form-select" aria-label="Default select example" id="theloai" tabindex="8" name="Status" required>
+                                                                    @if (item.Status == 0)
+                                                                    {
+                                                                        <option selected value="0">Chờ xác nhận</option>
+                                                                        <option value="1">Đang chuẩn bị</option>
+                                                                    }
+                                                                    else if (item.Status == 1)
+                                                                    {
+                                                                        <option selected value="1">Đang chuẩn bị</option>
+                                                                        <option value="2">Đang giao</option>
+                                                                    }
+                                                                    else if (item.Status == 2)
+                                                                    {
+                                                                        <option value="2" selected>Đang giao</option>
+                                                                        <option value="3">Giao thành công</option>
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">
+                                                                    Đóng
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </td>
+                            </tr>
+                            stt++;
+                        }
                     </tbody>
                 </table>
             </div>

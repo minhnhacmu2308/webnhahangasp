@@ -261,3 +261,7 @@ D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.dll
 D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.pdb
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.news.resources
 C:\Users\ADMIN\source\repos\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.updadb.resources
+D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.news.resources
+D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.updadb.resources
+D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.deletecolnews.resources
+D:\.NET\webnhahangasp\webnhahangasp\obj\Debug\webnhahangasp.Migrations.deletecoldb.resources

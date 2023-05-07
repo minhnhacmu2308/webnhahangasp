@@ -13,7 +13,7 @@ namespace webnhahangasp.Controllers
         NewsRepository newsRepository = new NewsRepository();
         FoodRepository foodRepository = new FoodRepository();
         MenuRepository menuRepository = new MenuRepository();
-        BranchRepositpry branchRepository = new BranchRepositpry();
+        BranchRepository branchRepository = new BranchRepository();
         public ActionResult Index(string msg)
         {
             ViewBag.Msg = msg;

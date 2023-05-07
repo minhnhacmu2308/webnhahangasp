@@ -49,7 +49,6 @@ namespace webnhahangasp.Repository
         {
             var obj = myDb.users.FirstOrDefault(x => x.Email == user.Email);
             obj.Fullname = user.Fullname;
-            obj.Updated_at = DateTime.Now;
             obj.Address = user.Address;
             obj.Gender = user.Gender;
             obj.Phone = user.Phone;
@@ -69,6 +68,11 @@ namespace webnhahangasp.Repository
                 return true;
             }
             return false;
+        }
+
+        public List<User> GetCustomer()
+        {
+            return myDb.users.Where(x => x.RoleId == 3).ToList();
         }
     }
 }

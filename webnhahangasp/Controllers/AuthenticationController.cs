@@ -36,8 +36,6 @@ namespace webnhahangasp.Controllers
             {
                 user.RoleId = 3;
                 user.Status = 1;
-                user.Created_at = DateTime.Now;
-                user.Updated_at = DateTime.Now;
                 user.Password = userRepository.md5(user.Password);
 
                 userRepository.Add(user);

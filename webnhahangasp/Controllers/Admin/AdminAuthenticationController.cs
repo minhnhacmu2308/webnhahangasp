@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webnhahangasp.Models;
+using webnhahangasp.Repository;
 
 namespace webnhahangasp.Controllers.Admin
 {
     public class AdminAuthenticationController : Controller
     {
+        UserRepository userDao = new UserRepository();
         // GET: AdminAuthentication
         public ActionResult Index()
         {
@@ -29,9 +31,11 @@ namespace webnhahangasp.Controllers.Admin
                 Email = form["email"],
                 Password = form["password"]
             };
-            if (user.Email == "admin@gmail.com" && user.Password == "123456789")
+            string passwordMd5 = userDao.md5(form["password"]);
+            User userInformation = userDao.checkLogin(user.Email, passwordMd5);
+            if (userInformation != null && userInformation.RoleId != 3)
             {
-                    Session.Add("ADMIN", user);
+                    Session.Add("ADMIN", userInformation);
                     return RedirectToAction("Index", "AdminHome");
             }
             else

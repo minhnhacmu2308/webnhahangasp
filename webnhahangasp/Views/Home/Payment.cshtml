@@ -39,7 +39,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="email" required placeholder="Số điện thoại" value="@userInfomatiom.Phone" name="PhoneNumber">
+                                    @{ var sdt = "0" + userInfomatiom.Phone;}
+                                    <input type="text" class="form-control" id="email" required placeholder="Số điện thoại" value="@sdt" name="PhoneNumber">
                                     <label for="email">Số điện thoại</label>
                                 </div>
                             </div>

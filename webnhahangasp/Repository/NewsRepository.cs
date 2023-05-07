@@ -33,5 +33,32 @@ namespace webnhahangasp.Repository
         {
             return myDb.news.FirstOrDefault(x => x.NewsId == id);
         }
+
+        public List<News> getAll()
+        {
+            return myDb.news.OrderByDescending(x => x.NewsId).ToList();
+        }
+
+        public void add(News branch)
+        {
+            myDb.news.Add(branch);
+            myDb.SaveChanges();
+        }
+
+        public void delete(int id)
+        {
+            var obj = myDb.news.FirstOrDefault(x => x.NewsId == id);
+            myDb.news.Remove(obj);
+            myDb.SaveChanges();
+        }
+
+        public void update(News branch)
+        {
+            var obj = myDb.news.FirstOrDefault(x => x.NewsId == branch.NewsId);
+            obj.Title = branch.Title;
+            obj.Image = branch.Image;
+            obj.Content = branch.Content;
+            myDb.SaveChanges();
+        }
     }
 }

@@ -51,9 +51,7 @@
                         <th scope="col">Ngày đặt</th>
                         <th scope="col">Giờ đến nơi</th>
                         <th scope="col">Số lượng người</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Số điện thoại</th>
-                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Món ăn đã đặt</th>
                         <th scope="col">Yêu cầu đặc biệt</th>
                         <th>Hoạt động</th>
                     </tr>
@@ -72,9 +70,13 @@
                             <td>@item.Date</td>
                             <td>@item.Time</td>
                             <td>@item.NumberPeople</td>
-                            <td>@item.User.Email</td>
-                            <td>@item.User.Phone</td>
-                            <td>@item.User.Address</td>
+                            <td>
+                                @{ var listFood = new webnhahangasp.Repository.BookingFoodRepository().getByBooking(item.BookingId);}
+                                @foreach (var food in listFood)
+                                {
+                                    <p>- @food.Food.Name</p>
+                                }
+                            </td>
                             <td>@item.Note</td>
                             @{
                                 TimeSpan time = TimeSpan.Parse(item.Time);

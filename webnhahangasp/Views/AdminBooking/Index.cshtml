@@ -6,7 +6,7 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Đặt bàn</h1>
+        <h1 class="mt-4">Danh sách đặt bàn</h1>
         <div class="card mb-4">
             <div class="card-header">
             </div>
@@ -16,15 +16,40 @@
                         <tr>
                             <th>STT</th>
                             <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
                             <th>Ngày đặt</th>
-                            <th>Giờ đặt</th>
+                            <th>Giờ đến</th>
                             <th>Chi nhánh</th>
                             <th>Số lượng người</th>
-                            <th>Hoạt động</th>
+                            <th>Món ăn đã đặt</th>
+                            <th>Yêu cầu đặc biệt</th>
                         </tr>
                     </thead>
-
                     <tbody>
+                        @{ var stt = 1;}
+                        @foreach (var item in ViewBag.List)
+                        {
+                        <tr>
+                            <td>@stt</td>
+                            <td>@item.FullName</td>
+                            <td>@item.Email</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Date</td>
+                            <td>@item.Time</td>
+                            <td>@item.Branch.Name</td>
+                            <td>@item.NumberPeople</td>
+                            <td>
+                                @{ var listFood = new webnhahangasp.Repository.BookingFoodRepository().getByBooking(item.BookingId);}
+                                @foreach (var food in listFood)
+                                {
+                                    <p>- @food.Food.Name</p>
+                                }
+                            </td>
+                            <td>@item.Note</td>
+                        </tr>
+                            stt++;
+                        }
                     </tbody>
                 </table>
             </div>

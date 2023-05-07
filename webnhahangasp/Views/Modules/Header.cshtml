@@ -27,7 +27,7 @@
                 <div class="dropdown-menu m-0">
                     @if (userInfomatiom != null)
                     {
-                        <a href="/User/Profiles" class="dropdown-item">@userInfomatiom.Name</a>
+                        <a href="/User/Profiles" class="dropdown-item">@userInfomatiom.Fullname</a>
                         <a href="/Booking/HistoryBook/@userInfomatiom.UserId/1" class="dropdown-item">Lịch sử đặt bàn</a>
                         <a href="/Order/HistoryOrder/@userInfomatiom.UserId/0" class="dropdown-item">Lịch sử đơn hàng</a>
                         <a href="/Authentication/Logout" class="dropdown-item">Đăng xuất</a>

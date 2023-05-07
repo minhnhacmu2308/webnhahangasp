@@ -6,7 +6,7 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Khách hàng</h1>
+        <h1 class="mt-4">Danh sách khách hàng</h1>
         <div class="card mb-4">
             <div class="card-header">
             </div>
@@ -19,12 +19,33 @@
                             <th>Email</th>
                             <th>Số điện thoại</th>
                             <th>Giới tính</th>
-                            <th>Ngày sinh</th>
-                            <th>Hoạt động</th>
+                            <th>Địa chỉ</th>
                         </tr>
                     </thead>
-
                     <tbody>
+                        @{ var stt = 1;}
+                        @foreach (var item in ViewBag.List)
+                        {
+                        <tr>
+                            <td>@stt</td>
+                            <td>@item.Fullname</td>
+                            <td>@item.Email</td>
+                            @{ var sdt = "0" + item.Phone;}
+                            <td>@sdt</td>
+                            <td>
+                                @if (item.Gender == 1)
+                                {
+                                    <span>Nam</span>
+                                }
+                                else
+                                {
+                                    <span>Nữ</span>
+                                }
+                            </td>
+                            <td>@item.Address</td>
+                        </tr>
+                        stt++;
+                    }
                     </tbody>
                 </table>
             </div>

@@ -42,7 +42,7 @@
         <div class="col-md-12 bg-dark d-flex align-items-center">
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">Đặt bàn</h5>
-                <h1 class="text-white mb-4">Đặt bàn trực tuyến cho ngày @DateTime.Now.ToString("dd/mm/yyyy")</h1>
+                <h1 class="text-white mb-4">Đặt bàn trực tuyến cho ngày @DateTime.Now.ToString("dd/MM/yyyy")</h1>
                 <form action="/Booking/Add" method="post">
                     <div class="row g-3">
                         <div class="col-md-6">
@@ -72,7 +72,8 @@
 
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="email" name="Phone" required value="@userInfomatiom.Phone" placeholder="Your Email">
+                                @{ var sdt = "0" + userInfomatiom.Phone;}
+                                <input type="text" class="form-control" id="email" name="Phone" required value="@sdt" placeholder="Your Email">
                                 <label for="email">Số điện thoại</label>
                             </div>
                         </div>

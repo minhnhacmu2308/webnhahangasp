@@ -1,4 +1,4 @@
-		Website nhà hàng : 
+Website nhà hàng : 
 Công nghệ sử dụng : ASP.NET MVC, Enity Framework, HTML, CSS, Bootstrap
 - Các đối tượng:
   + Admin
@@ -11,30 +11,33 @@ Quản lý:
 - Quản lý món ăn
 - Quản lý menu hằng ngày : menu hằng ngày sẽ được tạo ra bằng cách chọn các món ăn đã thêm trong mục quản lý món ăn
 - Quản lý các chi nhánh nhà hàng
-- Quản lý đặt bàn: xem được thông tin khách hàng nào đặt bàn nào vs món ăn gì
-- Xem các thống kê: thống kê tổng số đơn hàng, thống kê số tiền theo ngày
+- Quản lý đặt bàn: xem được thông tin khách hàng đặt bàn vs món ăn gì
+- Xem các thống kê: thống kê tổng số đơn hàng, thống kế tổng doanh thu
 - Quản lý đơn hàng
 - Cập nhật tình trạng đơn hàng
 - Quản lý danh sách khách hàng
 Nhân viên:
-- Xem thực đơn và các món ăn
-- Xem, chỉnh sửa, xác nhận hoặc hủy đặt bàn của khách hàng
+- Quản lý tin tức
+- Quản lý món ăn
+- Quản lý menu hằng ngày : menu hằng ngày sẽ được tạo ra bằng cách chọn các món ăn đã thêm trong mục quản lý món ăn
+- Quản lý đơn hàng
+- Cập nhật tình trạng đơn hàng
+- Quản lý đặt bàn: xem được thông tin khách hàng đặt bàn vs món ăn gì
 - Chat với khách hàng thông qua nền tảng chatlive tawk.to
 Khách hàng:
-- Truy cập vào trang chủ(done)
-- Xem tin tức(done)
-- Xem menu món ăn trong ngày(done)
-- Đăng ký (done)
-- Đăng nhập(done)
-- Cập nhật thông tin cá nhân: tên, địa chỉ, giới tính, số điện thoại (done)
-- Sau khi đăng nhập -> Đặt bàn -> chọn chi nhánh nhà hàng -> chọn ngày và giờ sẽ tới -> xác nhận đặt bàn(Done)
-- Xem lịch sử đã đặt bàn, có thể hủy bàn trước 2 tiếng(Done)
-
-//
-- Có thể thanh toán online qua momo, hoặc đến nhà hàng nhận bàn và thanh toán sau khi ăn xong
-- Chat với nhân viên trên website
-- Xem các món ăn có thể đặt mang đi(Done)
-- Thêm vào giỏ hàng(Done)
-- Cập nhập giỏ hàng(Done)
-- Nhập thông tin địa chỉ giao đồ ăn và đặt hàng(done)
+- Truy cập vào trang chủ
+- Xem tin tức
+- Xem menu món ăn trong ngày
+- Đăng ký 
+- Đăng nhập
+- Cập nhật thông tin cá nhân: tên, địa chỉ, giới tính, số điện thoại 
+- Đặt bàn
+- Xem lịch sử đã đặt bàn, có thể hủy bàn trước 2 tiếng
+- Xem các món ăn có thể đặt mang đi
+- Thêm vào giỏ hàng
+- Cập nhập giỏ hàng
+- Nhập thông tin địa chỉ giao đồ ăn và đặt hàng
+- Có thể thanh toán online qua momo
 - Xem lịch sử những đơn hàng đã đặt
+- Chat với nhân viên trên website
+

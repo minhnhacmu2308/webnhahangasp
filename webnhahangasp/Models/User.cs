@@ -19,15 +19,8 @@ namespace webnhahangasp.Models
         public int Gender { get; set; }//Giới tính
         public int Phone { get; set; }
         public string Address { get; set; }
-        public string Image { get; set; }
         public int Status { get; set; }
         public int RoleId { get; set; }
-        public DateTime Created_at { get; set; }
-        public int Created_by { get; set; }
-        public DateTime Updated_at { get; set; }
-        public int Updated_by { get; set; }
-        public int PayTotal { get; set; }
-
         public virtual Role Role { get; set; }
 
         public virtual ICollection<Booking> Bookings { get; set; }

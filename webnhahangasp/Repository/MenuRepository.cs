@@ -60,5 +60,26 @@ namespace webnhahangasp.Repository
             return myDb.menus.Where(x => x.Session.Equals(session) && x.Date.Equals(date)).ToList();
         }
 
+        public List<Menu> getAll()
+        {
+            string date = DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year;
+            return myDb.menus.Where(x => x.Date.Equals(date)).ToList();
+        }
+
+        public void delete(int id)
+        {
+            var obj = myDb.menus.FirstOrDefault(x => x.MenuId == id);
+            myDb.menus.Remove(obj);
+            myDb.SaveChanges();
+        }
+
+        public void update(Menu branch)
+        {
+            var obj = myDb.menus.FirstOrDefault(x => x.MenuId == branch.MenuId);
+            obj.FoodId = branch.FoodId;
+            obj.Session = branch.Session;
+            myDb.SaveChanges();
+        }
+
     }
 }

@@ -21,6 +21,11 @@ namespace webnhahangasp.Repository
             return myDb.bookings.Where(x => x.UserID == userId).ToList();
         }
 
+        public List<Booking> getAll()
+        {
+            return myDb.bookings.OrderByDescending(x => x.BookingId ).ToList();
+        }
+
         public void cancelBooking(int BookingId)
         {
             Booking booking = myDb.bookings.FirstOrDefault(x => x.BookingId == BookingId);

@@ -90,7 +90,7 @@
                                 int amount = item.Price * item.Quantity;
 
                                 <tr>
-                                    <th scope="row"><img style="width : 200px" src="@item.Image">
+                                    <th scope="row"><img style="width : 200px" src="~/Content/images/@item.Image">
                                     <input type="hidden" id="@amountOfFoodID"  value="@item.Price"/>
                                     </th>
                                     <td> @item.FoodName </td>
@@ -106,8 +106,8 @@
                                 @{
                                     int total = Model.Sum(x => x.Price * x.Quantity);
                                 }
-                                <td colspan="3" style="font-weight:bold">Tổng cộng:</td>
-                                <td><p id="total">@total.ToString("#,##0") VNĐ</p></td>
+                                <td colspan="4" style="font-weight:bold">Tổng cộng:</td>
+                                <td colspan="2"><p id="total">@total.ToString("#,##0") VNĐ</p></td>
                             </tr>
                         </tfoot>
                     </table>
