@@ -74,7 +74,7 @@
                                 @{ var listFood = new webnhahangasp.Repository.BookingFoodRepository().getByBooking(item.BookingId);}
                                 @foreach (var food in listFood)
                                 {
-                                    <p>- @food.Food.Name</p>
+                                <p>- @food.Food.Name ( @food.Food.Price.ToString("#,##0") VNĐ)</p>
                                 }
                             </td>
                             <td>@item.Note</td>
